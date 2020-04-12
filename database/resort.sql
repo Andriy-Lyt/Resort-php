@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2020 at 12:25 AM
+-- Generation Time: Apr 13, 2020 at 12:57 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -25,29 +25,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `book_restaurant`
+-- Table structure for table `bookings`
 --
 
-CREATE TABLE `book_restaurant` (
+CREATE TABLE `bookings` (
   `id` int(11) NOT NULL,
-  `date` datetime DEFAULT NULL,
-  `time` varchar(50) DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
   `client_id` int(11) NOT NULL,
-  `rest_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `book_tour`
---
-
-CREATE TABLE `book_tour` (
-  `id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `time` varchar(50) NOT NULL,
-  `tour_id` int(11) NOT NULL,
-  `client_id` int(11) NOT NULL
+  `item_type` varchar(100) NOT NULL,
+  `item_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -137,20 +123,11 @@ INSERT INTO `tours` (`id`, `image`, `name`, `descrip`, `price`) VALUES
 --
 
 --
--- Indexes for table `book_restaurant`
+-- Indexes for table `bookings`
 --
-ALTER TABLE `book_restaurant`
+ALTER TABLE `bookings`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `clients_id` (`client_id`),
-  ADD KEY `restaurant_id` (`rest_id`);
-
---
--- Indexes for table `book_tour`
---
-ALTER TABLE `book_tour`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `tour_id` (`tour_id`),
-  ADD KEY `client_id` (`client_id`);
+  ADD KEY `clients_id` (`client_id`);
 
 --
 -- Indexes for table `clients`
@@ -181,15 +158,9 @@ ALTER TABLE `tours`
 --
 
 --
--- AUTO_INCREMENT for table `book_restaurant`
+-- AUTO_INCREMENT for table `bookings`
 --
-ALTER TABLE `book_restaurant`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `book_tour`
---
-ALTER TABLE `book_tour`
+ALTER TABLE `bookings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -215,24 +186,6 @@ ALTER TABLE `restaurants`
 --
 ALTER TABLE `tours`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `book_restaurant`
---
-ALTER TABLE `book_restaurant`
-  ADD CONSTRAINT `clients_id` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`),
-  ADD CONSTRAINT `restaurant_id` FOREIGN KEY (`rest_id`) REFERENCES `restaurants` (`id`);
-
---
--- Constraints for table `book_tour`
---
-ALTER TABLE `book_tour`
-  ADD CONSTRAINT `book_tour_ibfk_1` FOREIGN KEY (`tour_id`) REFERENCES `tours` (`id`),
-  ADD CONSTRAINT `book_tour_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `clients` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
