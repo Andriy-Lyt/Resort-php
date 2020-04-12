@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2020 at 10:19 PM
+-- Generation Time: Apr 13, 2020 at 12:25 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `book_restaurant` (
   `id` int(11) NOT NULL,
-  `date` varchar(50) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `time` varchar(50) DEFAULT NULL,
   `client_id` int(11) NOT NULL,
   `rest_id` int(11) NOT NULL
