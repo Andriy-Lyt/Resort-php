@@ -1,0 +1,20 @@
+.tours-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+.single-tour-div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    min-height: 100px;
+    min-width: 100px;
+    margin: 15px 5px;
+    max-width: 320px;
+}
+.single-tour-div img {
+    max-width: 320px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    margin: -5px 0 12px -5px;
+}
