@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2020 at 12:57 AM
+-- Generation Time: Apr 16, 2020 at 09:07 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -30,11 +30,23 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `bookings` (
   `id` int(11) NOT NULL,
-  `time` datetime DEFAULT NULL,
+  `start_date` datetime DEFAULT NULL,
   `client_id` int(11) NOT NULL,
   `item_type` varchar(100) NOT NULL,
-  `item_id` int(11) NOT NULL
+  `item_id` int(11) NOT NULL,
+  `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `bookings`
+--
+
+INSERT INTO `bookings` (`id`, `start_date`, `client_id`, `item_type`, `item_id`, `comment`) VALUES
+(1, '2020-04-01 19:04:19', 1, 'restaurant', 1, 'AAA'),
+(2, '2020-04-14 03:22:00', 1, 'restaurant', 1, 'Date test'),
+(3, '2020-04-03 02:32:00', 1, 'restaurant', 1, ''),
+(4, '2020-04-08 01:12:00', 1, 'restaurant', 1, 'TEST GET'),
+(5, '2020-04-15 03:33:00', 1, 'restaurant', 1, 'URL Test');
 
 -- --------------------------------------------------------
 
@@ -48,6 +60,13 @@ CREATE TABLE `clients` (
   `phone` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`id`, `name`, `phone`, `email`) VALUES
+(1, 'John Bold', '647-00-01', 'john@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -161,13 +180,13 @@ ALTER TABLE `tours`
 -- AUTO_INCREMENT for table `bookings`
 --
 ALTER TABLE `bookings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `managers`

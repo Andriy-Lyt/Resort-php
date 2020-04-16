@@ -2,7 +2,6 @@
 require_once "../../include/header-dining.php";
 require_once '../../database/connect.php';
 
-$userid=1;
 
 //Display Restaurants from DB =======================
 $sql = "SELECT * FROM restaurants";
@@ -19,7 +18,6 @@ $rests = $pdostm->fetchAll(PDO::FETCH_OBJ);
 <!--Restaurants Title + Add button ------------------>
 <div class=" " id="">
     <form action="view-bookings-rest.php" method="POST">
-        <input type="hidden" name="id" value="<?= $userid; ?>"/>
         <button type="submit" name="view" class=" float-left btn btn-primary" id="">
             View Bookings
         </button>
@@ -42,14 +40,8 @@ $rests = $pdostm->fetchAll(PDO::FETCH_OBJ);
 
         <!--    Buttons Div -------->
         <div id="buttons-Mngr-div">
-            <form action="book-rest.php" method="POST">
-                <input type="hidden" name="id" value="<?= $rest->id; ?>"/>
-
-                <button type="submit" name="book" class="btn badge-success" id="bookRest">
-                    Book
-                </button>
-            </form>
-        </div>
+            <a href="book-rest.php?restid=<?= $rest->id; ?>" class="btn badge-success">Book</a>
+    </div>
     </div>
     <?php } ?>
 </div> <!-- Close Rests-container, End of Dynamic Code Rests  -->

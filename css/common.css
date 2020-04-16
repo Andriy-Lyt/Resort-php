@@ -85,8 +85,9 @@ main {
     margin-bottom: 20px;
 }
 .center {
-    margin-left: auto;
-    margin-right:auto;
+    margin: 10px auto;
+    max-width: 500px;
+    text-align: center;
 }
 .div-flex {
     display:flex;
@@ -143,4 +144,10 @@ label {
     hr {
         display:none;
     }
+}
+table {
+    padding: 7px;
+}
+table  tr th, table tr td  {
+    padding: 7px;
 }

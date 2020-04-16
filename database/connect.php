@@ -7,4 +7,4 @@ $dsn = 'mysql:host=localhost;dbname=' . $dbname;
 //get the connection
 $dbcon = new PDO($dsn, $username, $password);
 
-
+$tempUserId = 1;
